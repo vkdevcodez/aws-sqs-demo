@@ -1,0 +1,22 @@
+server:
+  port: 1234
+amazon:
+  arn-prefix: ${AMAZON_ARN_PREFIX:aws-cn}
+  account: ${AMAZON_ACCOUNT:110345434904}
+  aws:
+  
+    region: ${AWS_REGION:ap-southeast-1}
+   
+  
+cloud:
+  aws:
+    end-point:
+      uri: ${AWS_ENDPOINT_URI:https://sqs.ap-southeast-1.amazonaws.com/110345434904/}
+    region:
+      auto: ${AWS_REGION_AUTO:false}
+      static: ${amazon.aws.region}
+    credentials:
+      secretKey: ${amazon.aws.secretkey}
+      accessKey: ${amazon.aws.accesskey}
+    stack:
+      auto: ${AWS_STACK_AUTO:false}
